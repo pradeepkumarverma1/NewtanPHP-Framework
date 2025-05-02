@@ -1,0 +1,60 @@
+<?php
+
+/**
+ * If cmd line has arguments passed process with it.
+ */
+if ($argc > 1) {
+
+    for ($i = 1; $i < $argc; $i++) {
+
+        // If cmd is for controller create a controller file with the given name
+        if ($argv[$i] == 'controller' && isset($argv[$i + 1])) {
+
+            $filePath =  'controllers/' . $argv[$i + 1] . ".php";
+
+            if (file_exists($filePath)) {
+
+                echo 'Controller already exists.' . PHP_EOL;
+
+                return;
+            }
+
+            $controllerFile =  fopen($filePath, 'w');
+
+            $controllerCode = '
+                <?php
+
+                class ' . $argv[$i + 1] . ' extends NewController {
+                    
+                    public function index() {}
+
+                }
+            ';
+
+            fwrite($controllerFile, $controllerCode);
+
+            echo 'Controller created successfully.' . PHP_EOL;
+        } else if ($argv[$i] == 'serve') {
+            startServer();
+        }
+    }
+} else {
+
+    echo "No arguments Passed from the command line" . PHP_EOL;
+}
+
+
+
+function startServer()
+{
+
+    $publicDir = __DIR__ . '/public';
+
+    $command = sprintf('php -S localhost:8000 -t %s', escapeshellarg($publicDir));
+
+    echo "Starting server at http://localhost:8000" . PHP_EOL;
+    echo "Press Ctrl+C to stop the server." . PHP_EOL;
+
+
+    exec($command);
+}

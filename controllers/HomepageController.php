@@ -1,13 +1,13 @@
 <?php
 
+namespace App\Controllers;
 
-require_once('./core/View.php');
+use App\Core\NewController;
 
-class HomepageController
+class HomepageController extends NewController
 {
-
-    public static function home()
+    public function welcome()
     {
-        return View::view('hello');
+        return $this->view('welcome');
     }
 }

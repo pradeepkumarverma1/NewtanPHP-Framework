@@ -1,16 +1,37 @@
 <?php
 
+namespace App\Core;
+
+/**
+ * View class will handle the displaying of view file
+ */
 class View
 {
 
-    private static $viewPath = './resources/views/';
+    private static $viewPath = '../resources/views/';
 
-    public static function view($fileName)
+    public static function getView($fileName, $data = [])
     {
 
-        if (file_exists(self::$viewPath . $fileName . '.php')) {
+        $fullFilePath = self::$viewPath . $fileName . '.php';
 
-            return file_get_contents(self::$viewPath . $fileName . '.php');
+        if (str_contains($fileName, '.')) {
+
+            $fileName = str_replace('.', '/', $fileName);
+        }
+
+        if (file_exists($fullFilePath)) {
+
+            extract($data);
+
+            ob_start();
+
+            include $fullFilePath;
+
+            return ob_flush();
+        } else {
+
+            echo ('No view file was found.');
         }
     }
 }
