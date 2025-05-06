@@ -2,23 +2,17 @@
 
 namespace App\Core;
 
+use App\Core\traits\ExceptionTemplateLoader;
+
 /**
  * Core file for handling exceptions in the application
- * 
- * 
  */
 class Exception
 {
+    use ExceptionTemplateLoader;
 
     public static function error($errorCode)
     {
-        switch ($errorCode) {
-
-            case 404:
-                // TODO - Implement some templates
-                echo "404";
-
-                break;
-        }
+        (new self)->loadErrorTemplate($errorCode);
     }
 }

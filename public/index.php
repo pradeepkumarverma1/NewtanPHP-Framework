@@ -1,4 +1,3 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-require_once 'route.php';
+include __DIR__ . '/../bootstrap/app.php';
