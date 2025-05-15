@@ -24,7 +24,7 @@ if ($argc > 1) {
             $controllerCode = '
                 <?php
 
-                class ' . $argv[$i + 1] . ' extends NewController {
+                class ' . $argv[$i + 1] . ' {
                     
                     public function index() {}
 
