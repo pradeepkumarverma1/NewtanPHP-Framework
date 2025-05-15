@@ -2,12 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Core\NewController;
-
-class HomepageController extends NewController
+class HomepageController
 {
     public function welcome()
     {
-        return $this->view('welcome');
+        return view('welcome');
     }
 }

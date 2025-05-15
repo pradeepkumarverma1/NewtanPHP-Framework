@@ -4,6 +4,9 @@
             "App\\Controllers\\": "controllers/",
             "App\\Models\\": "models/",
             "App\\Core\\": "core/"
-        }
+        },
+        "files": [
+            "core/helpers/Helpers.php"
+        ]
     }
 }
