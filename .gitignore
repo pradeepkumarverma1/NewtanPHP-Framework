@@ -1,0 +1,43 @@
+# Composer vendor directory
+/vendor/
+
+# Composer lock file backup
+/composer.lock
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (if you use any JS tooling)
+/node_modules/
+
+# Cache and temporary files
+/cache/
+/tmp/
+
+# PHPUnit result cache
+.phpunit.result.cache
+
+# Build output
+/build/
+/dist/
+
+# Other common stuff
+*.bak
+*.swp
+*.tmp
+
